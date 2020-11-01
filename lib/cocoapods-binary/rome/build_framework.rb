@@ -156,7 +156,7 @@ module Pod
       case target.platform.name
       when :ios then build_for_iosish_platform(sandbox, build_dir, output_path, target, 'iphoneos', 'iphonesimulator', bitcode_enabled, custom_build_options, custom_build_options_simulator)
       when :osx then xcodebuild(sandbox, target.label, 'macosx', nil, custom_build_options)
-      # when :tvos then build_for_iosish_platform(sandbox, build_dir, target, 'appletvos', 'appletvsimulator')
+      when :tvos then build_for_iosish_platform(sandbox, build_dir, output_path, target, 'appletvos', 'appletvsimulator', bitcode_enabled, custom_build_options, custom_build_options_simulator)
       # when :watchos then build_for_iosish_platform(sandbox, build_dir, target, 'watchos', 'watchsimulator')
       else raise "Unsupported platform for '#{target.name}': '#{target.platform.name}'" end
     
